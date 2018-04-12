@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang='en' prefix='mdt: https://w3c.github.io/microdata/tests/vocab# mf: http://www.w3.org/2001/sw/DataAccess/tests/test-manifest# rdft: http://www.w3.org/ns/rdftest#'>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet' type='text/css'>
+<style>
+  body: {bacground-image: none;}
+  dl.test-detail, dl.test-options {
+    padding: 0.5em;
+  }
+  dl.test-detail>dt, dl.test-options>dt {
+    float: left;
+    clear: left;
+    text-align: right;
+    font-weight: bold;
+    color: green;
+  }
+  dl.test-detail>dt:after, dl.test-options>dt:after {content: ": "}
+  dl.test-detail>dd, dl.test-options>dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+  }
+  dl.test-description>dt {margin-top: 2em;}
+  dd {margin-left: 0;}
+  dd code {display: inline;}
+  footer {text-align: center;}
+</style>
+<title>
+Microdata Test Cases
+</title>
+<style>
+  em.rfc2119 { 
+    text-transform: lowercase;
+    font-variant:   small-caps;
+    font-style:     normal;
+    color:          #900;
+  }
+  a.testlink {
+    color: inherit;
+    text-decoration: none;
+  }
+  a.testlink:hover {
+    text-decoration: underline;
+  }
+  .warning {color: orange;}
+  .error {color: red;}
+</style>
+</head>
+<body resource='' typeof='mf:Manifest'>
+<p>
+<a href='http://www.w3.org/'>
+<img alt='W3C' height='48' src='http://www.w3.org/Icons/w3c_home' width='72'>
+</a>
+</p>
+<h1 property='rdfs:label'>Microdata Test Cases</h1>
+<p property='rdfs:comment'>Includes manifests for different application profiles.</p>
+<p>This page describes Microdata tests for JSON, and RDFa. These tests are also described in <a href="manifest.jsonld">JSON-LD</a> and <a href="manifest.ttl">Turtle</a> format for convenience. The manifest vocabulary is described in the <a href="vocab.html">Microdata Vocabulary</a> (<a href="vocab.jsonld">JSON-LD</a>, <a href="vocab.ttl">Turtle</a>) and is based on the <a href="http://www.w3.org/TR/2014/NOTE-rdf11-testcases-20140225/">RDF Test Vocabulary</a>.</p>
+
+<h2>General instructions for running the Microdata Test suites</h2>
+
+<p>All test manifests have a similar structure and reference an <em>action</em> file, and may reference a <em>result</em> file. <strong>Evaluation Tests</strong> reference both an <em>action</em> and a <em>result</em> file, and the result of processing the <em>action</em> file should result in output equivalent to the <em>result</em> file. For a <strong>ToRdfaTest</strong>, the results should be compared using <a href="http://www.w3.org/TR/rdf11-concepts/#graph-isomorphism">DOM equivalence</a>. For a <strong>ToJsonTest</strong>, the results should be compared using JSON object comparison.</p>
+
+<p>A <strong>PositiveValidationTest</strong> should process the input and find no validation errors. A <strong>WarningValidationTest</strong> should validate the input and generate one or more warnings; the content of these warnings is not checked as part of the test, as there is no normative form for validation warnings. A <strong>FALSEValiationTest</strong> should result in a validation error.</p>
+
+<p>Tests may be defined with processor options and expected HTTP headers which should be treated as if they were provided with the <em>action</em> file.</p>
+
+<p>The <em>action</em> file may reference a tabular data file (CSV or TSV) or a Metadata file (JSON).</p>
+
+<p>Tests included in the non-normative manifest test aspects of processing CSV files which are not normatively defined in CSVW; implementations are not required to pass such tests to be conforming.</p>
+
+<p>Developers are encouraged to make a local copy of the test suite (available on <a href="http://github.com/w3c/csvw/tests/">GitHub</a>) and simulate the behavior of fetching test files remotely and setting HTTP headers as described in a particular test entry.</p>
+
+<h2>Contributing Tests</h2>
+
+<p>The test manifests and entries are built automatically from <a href="manifest.csv">manifest.csv</a> using <a href="mk_manifest.rb">mk_manifest.rb</a>, where each row defines a combination of RDF, JSON and Validation tests for the same <em>action</em> and implicit files. Tests may be contributed via pull request to <a href="https://github.com/w3c/csvw">https://github.com/w3c/csvw</a> with suitable changes to the <a href="manifest.csv">manifest.csv</a> and necessary <em>action</em>, <em>result</em> and <em>implicit</em> files. Tests will also be considered if a contribution is sent to <a href="mailto:public-csv-wg-comments@w3.org">public-csv-wg-comments@w3.org</a>.</p>
+
+<h2>Distribution</h2>
+
+<p>Distributed under both the <a href="http://www.w3.org/Consortium/Legal/2008/04-testsuite-license">W3C Test Suite License</a> and the <a href="http://www.w3.org/Consortium/Legal/2008/03-bsd-license">W3C 3-clause BSD License</a>. To contribute to a W3C Test Suite, see the <a href="http://www.w3.org/2004/10/27-testcases">policies and contribution forms</a>.</p>
+
+<h2>Disclaimer</h2>
+
+<p>UNDER BOTH MUTUALLY EXCLUSIVE LICENSES, THIS DOCUMENT AND ALL DOCUMENTS, TESTS AND SOFTWARE THAT LINK THIS STATEMENT ARE PROVIDED &quot;AS IS,&quot; AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THE DOCUMENT ARE SUITABLE FOR ANY PURPOSE; NOR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+  COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
+<section class='contents'>
+<h2>Contents</h2>
+<ol>
+<li>
+<a href='#manifest-json'>Microdata JSON tests</a>
+– 0 entries
+</li>
+<li>
+<a href='#manifest-rdfa'>Microdata RDFa Tests</a>
+– 75 entries
+</li>
+</ol>
+</section>
+<section id='manifest-json' inlist property='mf:entry' resource='manifest-json' typeof='mf:Manifest'>
+<h2>Microdata JSON tests (0 entries)</h2>
+<p property='rdfs:comment'>Tests transformation of Microdata to JSON.</p>
+<p>
+JSON tests are passed when the result of transforming the action and implicit files generates the same JSON as the result file using JSON object comparison.
+</p>
+<dl class='test-description'>
+</dl>
+</section>
+<section id='manifest-rdfa' inlist property='mf:entry' resource='manifest-rdfa' typeof='mf:Manifest'>
+<h2>Microdata RDFa Tests (75 entries)</h2>
+<p property='rdfs:comment'>Tests transformation of Microdata to RDFa.</p>
+<p>
+RDF tests are passed when the graph generated by transforming the action and implicit files is isomorphic to that in the result file.
+</p>
+<dl class='test-description'>
+<dt id='manifest-rdfa#test001'>
+<a class='testlink' href='#manifest-rdfa#test001'>
+manifest-rdfa#test001:
+</a>
+<span about='manifest-rdfa#test001' property='mf:name'>Test 0001</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test001' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Item with itemtype and literal itemprop</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test001.html' property='mf:action'>test001.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test001.rdfa' property='mf:result'>test001.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test002'>
+<a class='testlink' href='#manifest-rdfa#test002'>
+manifest-rdfa#test002:
+</a>
+<span about='manifest-rdfa#test002' property='mf:name'>Test 0002</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test002' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Item with no itemtype and 2 elements with equivalent itemprop</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test002.html' property='mf:action'>test002.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test002.rdfa' property='mf:result'>test002.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test003'>
+<a class='testlink' href='#manifest-rdfa#test003'>
+manifest-rdfa#test003:
+</a>
+<span about='manifest-rdfa#test003' property='mf:name'>Test 0003</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test003' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Item with itemprop having two properties</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test003.html' property='mf:action'>test003.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test003.rdfa' property='mf:result'>test003.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test004'>
+<a class='testlink' href='#manifest-rdfa#test004'>
+manifest-rdfa#test004:
+</a>
+<span about='manifest-rdfa#test004' property='mf:name'>Test 0004</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test004' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of meta and @content</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test004.html' property='mf:action'>test004.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test004.rdfa' property='mf:result'>test004.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test005'>
+<a class='testlink' href='#manifest-rdfa#test005'>
+manifest-rdfa#test005:
+</a>
+<span about='manifest-rdfa#test005' property='mf:name'>Test 0005</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test005' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of audio and @src</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test005.html' property='mf:action'>test005.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test005.rdfa' property='mf:result'>test005.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test006'>
+<a class='testlink' href='#manifest-rdfa#test006'>
+manifest-rdfa#test006:
+</a>
+<span about='manifest-rdfa#test006' property='mf:name'>Test 0006</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test006' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of embed and @src</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test006.html' property='mf:action'>test006.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test006.rdfa' property='mf:result'>test006.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test007'>
+<a class='testlink' href='#manifest-rdfa#test007'>
+manifest-rdfa#test007:
+</a>
+<span about='manifest-rdfa#test007' property='mf:name'>Test 0007</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test007' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of iframe and @src</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test007.html' property='mf:action'>test007.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test007.rdfa' property='mf:result'>test007.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test008'>
+<a class='testlink' href='#manifest-rdfa#test008'>
+manifest-rdfa#test008:
+</a>
+<span about='manifest-rdfa#test008' property='mf:name'>Test 0008</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test008' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of img and @src</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test008.html' property='mf:action'>test008.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test008.rdfa' property='mf:result'>test008.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test009'>
+<a class='testlink' href='#manifest-rdfa#test009'>
+manifest-rdfa#test009:
+</a>
+<span about='manifest-rdfa#test009' property='mf:name'>Test 0009</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test009' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of source and @src</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test009.html' property='mf:action'>test009.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test009.rdfa' property='mf:result'>test009.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test010'>
+<a class='testlink' href='#manifest-rdfa#test010'>
+manifest-rdfa#test010:
+</a>
+<span about='manifest-rdfa#test010' property='mf:name'>Test 0010</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test010' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of track and @src</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test010.html' property='mf:action'>test010.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test010.rdfa' property='mf:result'>test010.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test011'>
+<a class='testlink' href='#manifest-rdfa#test011'>
+manifest-rdfa#test011:
+</a>
+<span about='manifest-rdfa#test011' property='mf:name'>Test 0011</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test011' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of video and @src</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test011.html' property='mf:action'>test011.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test011.rdfa' property='mf:result'>test011.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test012'>
+<a class='testlink' href='#manifest-rdfa#test012'>
+manifest-rdfa#test012:
+</a>
+<span about='manifest-rdfa#test012' property='mf:name'>Test 0012</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test012' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of a and @href</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test012.html' property='mf:action'>test012.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test012.rdfa' property='mf:result'>test012.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test013'>
+<a class='testlink' href='#manifest-rdfa#test013'>
+manifest-rdfa#test013:
+</a>
+<span about='manifest-rdfa#test013' property='mf:name'>Test 0013</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test013' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of area and @href</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test013.html' property='mf:action'>test013.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test013.rdfa' property='mf:result'>test013.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test014'>
+<a class='testlink' href='#manifest-rdfa#test014'>
+manifest-rdfa#test014:
+</a>
+<span about='manifest-rdfa#test014' property='mf:name'>Test 0014</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test014' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of link and @href</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test014.html' property='mf:action'>test014.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test014.rdfa' property='mf:result'>test014.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test015'>
+<a class='testlink' href='#manifest-rdfa#test015'>
+manifest-rdfa#test015:
+</a>
+<span about='manifest-rdfa#test015' property='mf:name'>Test 0015</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test015' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of object and @data</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test015.html' property='mf:action'>test015.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test015.rdfa' property='mf:result'>test015.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_1'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_1'>
+manifest-rdfa#sdo_eg_md_1:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_1' property='mf:name'>Test SDO1</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_1' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 1</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_1.html' property='mf:action'>sdo_eg_md_1.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_1.rdfa' property='mf:result'>sdo_eg_md_1.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_2'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_2'>
+manifest-rdfa#sdo_eg_md_2:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_2' property='mf:name'>Test SDO2</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_2' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 2</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_2.html' property='mf:action'>sdo_eg_md_2.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_2.rdfa' property='mf:result'>sdo_eg_md_2.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_3'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_3'>
+manifest-rdfa#sdo_eg_md_3:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_3' property='mf:name'>Test SDO3</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_3' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 3</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_3.html' property='mf:action'>sdo_eg_md_3.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_3.rdfa' property='mf:result'>sdo_eg_md_3.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_4'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_4'>
+manifest-rdfa#sdo_eg_md_4:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_4' property='mf:name'>Test SDO4</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_4' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 4</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_4.html' property='mf:action'>sdo_eg_md_4.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_4.rdfa' property='mf:result'>sdo_eg_md_4.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_5'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_5'>
+manifest-rdfa#sdo_eg_md_5:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_5' property='mf:name'>Test SDO5</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_5' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 5</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_5.html' property='mf:action'>sdo_eg_md_5.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_5.rdfa' property='mf:result'>sdo_eg_md_5.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_6'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_6'>
+manifest-rdfa#sdo_eg_md_6:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_6' property='mf:name'>Test SDO6</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_6' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 6</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_6.html' property='mf:action'>sdo_eg_md_6.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_6.rdfa' property='mf:result'>sdo_eg_md_6.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_7'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_7'>
+manifest-rdfa#sdo_eg_md_7:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_7' property='mf:name'>Test SDO7</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_7' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 7</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_7.html' property='mf:action'>sdo_eg_md_7.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_7.rdfa' property='mf:result'>sdo_eg_md_7.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_8'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_8'>
+manifest-rdfa#sdo_eg_md_8:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_8' property='mf:name'>Test SDO8</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_8' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 8</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_8.html' property='mf:action'>sdo_eg_md_8.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_8.rdfa' property='mf:result'>sdo_eg_md_8.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_9'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_9'>
+manifest-rdfa#sdo_eg_md_9:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_9' property='mf:name'>Test SDO9</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_9' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 9</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_9.html' property='mf:action'>sdo_eg_md_9.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_9.rdfa' property='mf:result'>sdo_eg_md_9.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_10'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_10'>
+manifest-rdfa#sdo_eg_md_10:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_10' property='mf:name'>Test SDO10</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_10' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 10</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_10.html' property='mf:action'>sdo_eg_md_10.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_10.rdfa' property='mf:result'>sdo_eg_md_10.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_11'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_11'>
+manifest-rdfa#sdo_eg_md_11:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_11' property='mf:name'>Test SDO11</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_11' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 11</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_11.html' property='mf:action'>sdo_eg_md_11.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_11.rdfa' property='mf:result'>sdo_eg_md_11.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_12'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_12'>
+manifest-rdfa#sdo_eg_md_12:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_12' property='mf:name'>Test SDO12</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_12' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 12</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_12.html' property='mf:action'>sdo_eg_md_12.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_12.rdfa' property='mf:result'>sdo_eg_md_12.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_13'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_13'>
+manifest-rdfa#sdo_eg_md_13:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_13' property='mf:name'>Test SDO13</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_13' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 13</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_13.html' property='mf:action'>sdo_eg_md_13.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_13.rdfa' property='mf:result'>sdo_eg_md_13.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_14'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_14'>
+manifest-rdfa#sdo_eg_md_14:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_14' property='mf:name'>Test SDO14</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_14' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 14</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_14.html' property='mf:action'>sdo_eg_md_14.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_14.rdfa' property='mf:result'>sdo_eg_md_14.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_15'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_15'>
+manifest-rdfa#sdo_eg_md_15:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_15' property='mf:name'>Test SDO15</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_15' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 15</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_15.html' property='mf:action'>sdo_eg_md_15.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_15.rdfa' property='mf:result'>sdo_eg_md_15.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_16'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_16'>
+manifest-rdfa#sdo_eg_md_16:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_16' property='mf:name'>Test SDO16</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_16' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 16</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_16.html' property='mf:action'>sdo_eg_md_16.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_16.rdfa' property='mf:result'>sdo_eg_md_16.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_17'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_17'>
+manifest-rdfa#sdo_eg_md_17:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_17' property='mf:name'>Test SDO17</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_17' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 17</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_17.html' property='mf:action'>sdo_eg_md_17.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_17.rdfa' property='mf:result'>sdo_eg_md_17.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_18'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_18'>
+manifest-rdfa#sdo_eg_md_18:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_18' property='mf:name'>Test SDO18</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_18' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 18</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_18.html' property='mf:action'>sdo_eg_md_18.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_18.rdfa' property='mf:result'>sdo_eg_md_18.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_19'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_19'>
+manifest-rdfa#sdo_eg_md_19:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_19' property='mf:name'>Test SDO19</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_19' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 19</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_19.html' property='mf:action'>sdo_eg_md_19.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_19.rdfa' property='mf:result'>sdo_eg_md_19.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_20'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_20'>
+manifest-rdfa#sdo_eg_md_20:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_20' property='mf:name'>Test SDO20</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_20' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 20</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_20.html' property='mf:action'>sdo_eg_md_20.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_20.rdfa' property='mf:result'>sdo_eg_md_20.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_21'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_21'>
+manifest-rdfa#sdo_eg_md_21:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_21' property='mf:name'>Test SDO21</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_21' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 21</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_21.html' property='mf:action'>sdo_eg_md_21.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_21.rdfa' property='mf:result'>sdo_eg_md_21.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_22'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_22'>
+manifest-rdfa#sdo_eg_md_22:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_22' property='mf:name'>Test SDO22</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_22' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 22</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_22.html' property='mf:action'>sdo_eg_md_22.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_22.rdfa' property='mf:result'>sdo_eg_md_22.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_23'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_23'>
+manifest-rdfa#sdo_eg_md_23:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_23' property='mf:name'>Test SDO23</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_23' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 23</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_23.html' property='mf:action'>sdo_eg_md_23.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_23.rdfa' property='mf:result'>sdo_eg_md_23.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_24'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_24'>
+manifest-rdfa#sdo_eg_md_24:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_24' property='mf:name'>Test SDO24</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_24' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 24</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_24.html' property='mf:action'>sdo_eg_md_24.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_24.rdfa' property='mf:result'>sdo_eg_md_24.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_25'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_25'>
+manifest-rdfa#sdo_eg_md_25:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_25' property='mf:name'>Test SDO25</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_25' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 25</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_25.html' property='mf:action'>sdo_eg_md_25.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_25.rdfa' property='mf:result'>sdo_eg_md_25.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_26'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_26'>
+manifest-rdfa#sdo_eg_md_26:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_26' property='mf:name'>Test SDO26</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_26' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 26</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_26.html' property='mf:action'>sdo_eg_md_26.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_26.rdfa' property='mf:result'>sdo_eg_md_26.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_27'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_27'>
+manifest-rdfa#sdo_eg_md_27:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_27' property='mf:name'>Test SDO27</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_27' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 27</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_27.html' property='mf:action'>sdo_eg_md_27.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_27.rdfa' property='mf:result'>sdo_eg_md_27.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_28'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_28'>
+manifest-rdfa#sdo_eg_md_28:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_28' property='mf:name'>Test SDO28</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_28' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 28</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_28.html' property='mf:action'>sdo_eg_md_28.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_28.rdfa' property='mf:result'>sdo_eg_md_28.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#sdo_eg_md_29'>
+<a class='testlink' href='#manifest-rdfa#sdo_eg_md_29'>
+manifest-rdfa#sdo_eg_md_29:
+</a>
+<span about='manifest-rdfa#sdo_eg_md_29' property='mf:name'>Test SDO29</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#sdo_eg_md_29' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Web Schemas TF: schema.org tests: test 29</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='sdo_eg_md_29.html' property='mf:action'>sdo_eg_md_29.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='sdo_eg_md_29.rdfa' property='mf:result'>sdo_eg_md_29.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test016'>
+<a class='testlink' href='#manifest-rdfa#test016'>
+manifest-rdfa#test016:
+</a>
+<span about='manifest-rdfa#test016' property='mf:name'>Test 0016</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test016' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of time with @datetime xsd:time</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test016.html' property='mf:action'>test016.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test016.rdfa' property='mf:result'>test016.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test017'>
+<a class='testlink' href='#manifest-rdfa#test017'>
+manifest-rdfa#test017:
+</a>
+<span about='manifest-rdfa#test017' property='mf:name'>Test 0017</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test017' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of time with @datetime xsd:dateTime</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test017.html' property='mf:action'>test017.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test017.rdfa' property='mf:result'>test017.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test018'>
+<a class='testlink' href='#manifest-rdfa#test018'>
+manifest-rdfa#test018:
+</a>
+<span about='manifest-rdfa#test018' property='mf:name'>Test 0018</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test018' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of time with @datetime xsd:duration</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test018.html' property='mf:action'>test018.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test018.rdfa' property='mf:result'>test018.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test019'>
+<a class='testlink' href='#manifest-rdfa#test019'>
+manifest-rdfa#test019:
+</a>
+<span about='manifest-rdfa#test019' property='mf:name'>Test 0019</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test019' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of time with @datetime invalid</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test019.html' property='mf:action'>test019.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test019.rdfa' property='mf:result'>test019.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test020'>
+<a class='testlink' href='#manifest-rdfa#test020'>
+manifest-rdfa#test020:
+</a>
+<span about='manifest-rdfa#test020' property='mf:name'>Test 0020</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test020' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>relative URL as object</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test020.html' property='mf:action'>test020.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test020.rdfa' property='mf:result'>test020.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test021'>
+<a class='testlink' href='#manifest-rdfa#test021'>
+manifest-rdfa#test021:
+</a>
+<span about='manifest-rdfa#test021' property='mf:name'>Test 0021</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test021' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>relative URL as itemid</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test021.html' property='mf:action'>test021.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test021.rdfa' property='mf:result'>test021.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test022'>
+<a class='testlink' href='#manifest-rdfa#test022'>
+manifest-rdfa#test022:
+</a>
+<span about='manifest-rdfa#test022' property='mf:name'>Test 0022</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test022' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>token property no @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test022.html' property='mf:action'>test022.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test022.rdfa' property='mf:result'>test022.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test023'>
+<a class='testlink' href='#manifest-rdfa#test023'>
+manifest-rdfa#test023:
+</a>
+<span about='manifest-rdfa#test023' property='mf:name'>Test 0023</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test023' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>token property empty @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test023.html' property='mf:action'>test023.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test023.rdfa' property='mf:result'>test023.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test024'>
+<a class='testlink' href='#manifest-rdfa#test024'>
+manifest-rdfa#test024:
+</a>
+<span about='manifest-rdfa#test024' property='mf:name'>Test 0024</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test024' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>token property and relative @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test024.html' property='mf:action'>test024.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test024.rdfa' property='mf:result'>test024.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test025'>
+<a class='testlink' href='#manifest-rdfa#test025'>
+manifest-rdfa#test025:
+</a>
+<span about='manifest-rdfa#test025' property='mf:name'>Test 0025</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test025' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>token property and single @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test025.html' property='mf:action'>test025.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test025.rdfa' property='mf:result'>test025.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test026'>
+<a class='testlink' href='#manifest-rdfa#test026'>
+manifest-rdfa#test026:
+</a>
+<span about='manifest-rdfa#test026' property='mf:name'>Test 0026</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test026' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>token property and multiple @itemtypes from different vocabularies</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test026.html' property='mf:action'>test026.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test026.rdfa' property='mf:result'>test026.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test027'>
+<a class='testlink' href='#manifest-rdfa#test027'>
+manifest-rdfa#test027:
+</a>
+<span about='manifest-rdfa#test027' property='mf:name'>Test 0027</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test027' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>URI property no @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test027.html' property='mf:action'>test027.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test027.rdfa' property='mf:result'>test027.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test028'>
+<a class='testlink' href='#manifest-rdfa#test028'>
+manifest-rdfa#test028:
+</a>
+<span about='manifest-rdfa#test028' property='mf:name'>Test 0028</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test028' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>URI property empty @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test028.html' property='mf:action'>test028.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test028.rdfa' property='mf:result'>test028.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test029'>
+<a class='testlink' href='#manifest-rdfa#test029'>
+manifest-rdfa#test029:
+</a>
+<span about='manifest-rdfa#test029' property='mf:name'>Test 0029</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test029' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>URI property relative @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test029.html' property='mf:action'>test029.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test029.rdfa' property='mf:result'>test029.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test030'>
+<a class='testlink' href='#manifest-rdfa#test030'>
+manifest-rdfa#test030:
+</a>
+<span about='manifest-rdfa#test030' property='mf:name'>Test 0030</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test030' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>URI property single @itemtype</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test030.html' property='mf:action'>test030.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test030.rdfa' property='mf:result'>test030.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test031'>
+<a class='testlink' href='#manifest-rdfa#test031'>
+manifest-rdfa#test031:
+</a>
+<span about='manifest-rdfa#test031' property='mf:name'>Test 0031</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test031' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>inherited type and token property</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test031.html' property='mf:action'>test031.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test031.rdfa' property='mf:result'>test031.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test032'>
+<a class='testlink' href='#manifest-rdfa#test032'>
+manifest-rdfa#test032:
+</a>
+<span about='manifest-rdfa#test032' property='mf:name'>Test 0032</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test032' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>@itemref to single id</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test032.html' property='mf:action'>test032.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test032.rdfa' property='mf:result'>test032.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test033'>
+<a class='testlink' href='#manifest-rdfa#test033'>
+manifest-rdfa#test033:
+</a>
+<span about='manifest-rdfa#test033' property='mf:name'>Test 0033</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test033' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>@itemref generates property values</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test033.html' property='mf:action'>test033.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test033.rdfa' property='mf:result'>test033.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test034'>
+<a class='testlink' href='#manifest-rdfa#test034'>
+manifest-rdfa#test034:
+</a>
+<span about='manifest-rdfa#test034' property='mf:name'>Test 0034</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test034' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>@itemref to single id with different types</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test034.html' property='mf:action'>test034.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test034.rdfa' property='mf:result'>test034.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test035'>
+<a class='testlink' href='#manifest-rdfa#test035'>
+manifest-rdfa#test035:
+</a>
+<span about='manifest-rdfa#test035' property='mf:name'>Test 0035</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test035' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>@itemref to multiple ids</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test035.html' property='mf:action'>test035.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test035.rdfa' property='mf:result'>test035.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test036'>
+<a class='testlink' href='#manifest-rdfa#test036'>
+manifest-rdfa#test036:
+</a>
+<span about='manifest-rdfa#test036' property='mf:name'>Test 0036</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test036' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>@itemref with chaining</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test036.html' property='mf:action'>test036.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test036.rdfa' property='mf:result'>test036.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test037'>
+<a class='testlink' href='#manifest-rdfa#test037'>
+manifest-rdfa#test037:
+</a>
+<span about='manifest-rdfa#test037' property='mf:name'>Test 0037</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test037' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Shared @itemref</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test037.html' property='mf:action'>test037.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test037.rdfa' property='mf:result'>test037.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test038'>
+<a class='testlink' href='#manifest-rdfa#test038'>
+manifest-rdfa#test038:
+</a>
+<span about='manifest-rdfa#test038' property='mf:name'>Test 0038</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test038' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Property URI generation 1</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test038.html' property='mf:action'>test038.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test038.rdfa' property='mf:result'>test038.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test039'>
+<a class='testlink' href='#manifest-rdfa#test039'>
+manifest-rdfa#test039:
+</a>
+<span about='manifest-rdfa#test039' property='mf:name'>Test 0039</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test039' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Property URI generation 2</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test039.html' property='mf:action'>test039.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test039.rdfa' property='mf:result'>test039.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test040'>
+<a class='testlink' href='#manifest-rdfa#test040'>
+manifest-rdfa#test040:
+</a>
+<span about='manifest-rdfa#test040' property='mf:name'>Test 0040</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test040' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Property URI generation 3</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test040.html' property='mf:action'>test040.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test040.rdfa' property='mf:result'>test040.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test041'>
+<a class='testlink' href='#manifest-rdfa#test041'>
+manifest-rdfa#test041:
+</a>
+<span about='manifest-rdfa#test041' property='mf:name'>Test 0041</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test041' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of data and xsd:float</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test041.html' property='mf:action'>test041.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test041.rdfa' property='mf:result'>test041.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test042'>
+<a class='testlink' href='#manifest-rdfa#test042'>
+manifest-rdfa#test042:
+</a>
+<span about='manifest-rdfa#test042' property='mf:name'>Test 0042</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test042' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of data and xsd:integer</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test042.html' property='mf:action'>test042.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test042.rdfa' property='mf:result'>test042.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test043'>
+<a class='testlink' href='#manifest-rdfa#test043'>
+manifest-rdfa#test043:
+</a>
+<span about='manifest-rdfa#test043' property='mf:name'>Test 0043</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test043' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of data and string</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test043.html' property='mf:action'>test043.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test043.rdfa' property='mf:result'>test043.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test044'>
+<a class='testlink' href='#manifest-rdfa#test044'>
+manifest-rdfa#test044:
+</a>
+<span about='manifest-rdfa#test044' property='mf:name'>Test 0044</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test044' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of meter and xsd:double</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test044.html' property='mf:action'>test044.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test044.rdfa' property='mf:result'>test044.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test045'>
+<a class='testlink' href='#manifest-rdfa#test045'>
+manifest-rdfa#test045:
+</a>
+<span about='manifest-rdfa#test045' property='mf:name'>Test 0045</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test045' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of meter and xsd:integer</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test045.html' property='mf:action'>test045.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test045.rdfa' property='mf:result'>test045.rdfa</a>
+</dd>
+</dl>
+</dd>
+<dt id='manifest-rdfa#test046'>
+<a class='testlink' href='#manifest-rdfa#test046'>
+manifest-rdfa#test046:
+</a>
+<span about='manifest-rdfa#test046' property='mf:name'>Test 0046</span>
+</dt>
+<dd inlist property='mf:entry' resource='manifest-rdfa#test046' typeof='csvt:ToRdfaTest'>
+<div property='rdfs:comment'>
+<p>Use of meter and xsd:string</p>
+
+</div>
+<dl class='test-detail'>
+<dt>type</dt>
+<dd>csvt:ToRdfaTest</dd>
+<dt>approval</dt>
+<dd property='mf:approval' resource='rdft:Proposed'>rdft:Proposed</dd>
+<dt>action</dt>
+<dd>
+<a href='test046.html' property='mf:action'>test046.html</a>
+</dd>
+<dt>result</dt>
+<dd>
+<a href='test046.rdfa' property='mf:result'>test046.rdfa</a>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<footer>
+<p><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright ©</a> 2015 <a href="http://www.w3.org/">W3C</a>® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.org/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). W3C® <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
+</footer>
+</body>
+</html>

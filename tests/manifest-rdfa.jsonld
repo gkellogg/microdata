@@ -1,0 +1,715 @@
+{
+  "@context": {
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
+    "mq": "http://www.w3.org/2001/sw/DataAccess/tests/test-query#",
+    "rdft": "http://www.w3.org/ns/rdftest#",
+    "mdt": "https://w3c.github.io/microdata/tests/vocab#",
+    "id": "@id",
+    "type": "@type",
+    "action": {
+      "@id": "mf:action",
+      "@type": "@id"
+    },
+    "approval": {
+      "@id": "rdft:approval",
+      "@type": "@id"
+    },
+    "comment": "rdfs:comment",
+    "contentType": "csvt:contentType",
+    "entries": {
+      "@id": "mf:entries",
+      "@type": "@id",
+      "@container": "@list"
+    },
+    "label": "rdfs:label",
+    "name": "mf:name",
+    "option": "csvt:option",
+    "result": {
+      "@id": "mf:result",
+      "@type": "@id"
+    }
+  },
+  "id": "manifest-rdfa",
+  "type": "mf:Manifest",
+  "label": "Microdata RDFa Tests",
+  "comment": "Tests transformation of Microdata to RDFa.",
+  "entries": [
+    {
+      "id": "manifest-rdfa#test001",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0001",
+      "comment": "Item with itemtype and literal itemprop",
+      "approval": "rdft:Proposed",
+      "action": "test001.html",
+      "result": "test001.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test002",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0002",
+      "comment": "Item with no itemtype and 2 elements with equivalent itemprop",
+      "approval": "rdft:Proposed",
+      "action": "test002.html",
+      "result": "test002.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test003",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0003",
+      "comment": "Item with itemprop having two properties",
+      "approval": "rdft:Proposed",
+      "action": "test003.html",
+      "result": "test003.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test004",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0004",
+      "comment": "Use of meta and @content",
+      "approval": "rdft:Proposed",
+      "action": "test004.html",
+      "result": "test004.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test005",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0005",
+      "comment": "Use of audio and @src",
+      "approval": "rdft:Proposed",
+      "action": "test005.html",
+      "result": "test005.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test006",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0006",
+      "comment": "Use of embed and @src",
+      "approval": "rdft:Proposed",
+      "action": "test006.html",
+      "result": "test006.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test007",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0007",
+      "comment": "Use of iframe and @src",
+      "approval": "rdft:Proposed",
+      "action": "test007.html",
+      "result": "test007.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test008",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0008",
+      "comment": "Use of img and @src",
+      "approval": "rdft:Proposed",
+      "action": "test008.html",
+      "result": "test008.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test009",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0009",
+      "comment": "Use of source and @src",
+      "approval": "rdft:Proposed",
+      "action": "test009.html",
+      "result": "test009.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test010",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0010",
+      "comment": "Use of track and @src",
+      "approval": "rdft:Proposed",
+      "action": "test010.html",
+      "result": "test010.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test011",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0011",
+      "comment": "Use of video and @src",
+      "approval": "rdft:Proposed",
+      "action": "test011.html",
+      "result": "test011.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test012",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0012",
+      "comment": "Use of a and @href",
+      "approval": "rdft:Proposed",
+      "action": "test012.html",
+      "result": "test012.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test013",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0013",
+      "comment": "Use of area and @href",
+      "approval": "rdft:Proposed",
+      "action": "test013.html",
+      "result": "test013.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test014",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0014",
+      "comment": "Use of link and @href",
+      "approval": "rdft:Proposed",
+      "action": "test014.html",
+      "result": "test014.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test015",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0015",
+      "comment": "Use of object and @data",
+      "approval": "rdft:Proposed",
+      "action": "test015.html",
+      "result": "test015.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_1",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO1",
+      "comment": "Web Schemas TF: schema.org tests: test 1",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_1.html",
+      "result": "sdo_eg_md_1.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_2",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO2",
+      "comment": "Web Schemas TF: schema.org tests: test 2",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_2.html",
+      "result": "sdo_eg_md_2.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_3",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO3",
+      "comment": "Web Schemas TF: schema.org tests: test 3",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_3.html",
+      "result": "sdo_eg_md_3.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_4",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO4",
+      "comment": "Web Schemas TF: schema.org tests: test 4",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_4.html",
+      "result": "sdo_eg_md_4.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_5",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO5",
+      "comment": "Web Schemas TF: schema.org tests: test 5",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_5.html",
+      "result": "sdo_eg_md_5.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_6",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO6",
+      "comment": "Web Schemas TF: schema.org tests: test 6",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_6.html",
+      "result": "sdo_eg_md_6.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_7",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO7",
+      "comment": "Web Schemas TF: schema.org tests: test 7",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_7.html",
+      "result": "sdo_eg_md_7.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_8",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO8",
+      "comment": "Web Schemas TF: schema.org tests: test 8",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_8.html",
+      "result": "sdo_eg_md_8.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_9",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO9",
+      "comment": "Web Schemas TF: schema.org tests: test 9",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_9.html",
+      "result": "sdo_eg_md_9.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_10",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO10",
+      "comment": "Web Schemas TF: schema.org tests: test 10",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_10.html",
+      "result": "sdo_eg_md_10.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_11",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO11",
+      "comment": "Web Schemas TF: schema.org tests: test 11",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_11.html",
+      "result": "sdo_eg_md_11.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_12",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO12",
+      "comment": "Web Schemas TF: schema.org tests: test 12",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_12.html",
+      "result": "sdo_eg_md_12.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_13",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO13",
+      "comment": "Web Schemas TF: schema.org tests: test 13",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_13.html",
+      "result": "sdo_eg_md_13.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_14",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO14",
+      "comment": "Web Schemas TF: schema.org tests: test 14",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_14.html",
+      "result": "sdo_eg_md_14.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_15",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO15",
+      "comment": "Web Schemas TF: schema.org tests: test 15",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_15.html",
+      "result": "sdo_eg_md_15.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_16",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO16",
+      "comment": "Web Schemas TF: schema.org tests: test 16",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_16.html",
+      "result": "sdo_eg_md_16.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_17",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO17",
+      "comment": "Web Schemas TF: schema.org tests: test 17",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_17.html",
+      "result": "sdo_eg_md_17.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_18",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO18",
+      "comment": "Web Schemas TF: schema.org tests: test 18",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_18.html",
+      "result": "sdo_eg_md_18.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_19",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO19",
+      "comment": "Web Schemas TF: schema.org tests: test 19",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_19.html",
+      "result": "sdo_eg_md_19.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_20",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO20",
+      "comment": "Web Schemas TF: schema.org tests: test 20",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_20.html",
+      "result": "sdo_eg_md_20.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_21",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO21",
+      "comment": "Web Schemas TF: schema.org tests: test 21",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_21.html",
+      "result": "sdo_eg_md_21.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_22",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO22",
+      "comment": "Web Schemas TF: schema.org tests: test 22",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_22.html",
+      "result": "sdo_eg_md_22.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_23",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO23",
+      "comment": "Web Schemas TF: schema.org tests: test 23",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_23.html",
+      "result": "sdo_eg_md_23.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_24",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO24",
+      "comment": "Web Schemas TF: schema.org tests: test 24",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_24.html",
+      "result": "sdo_eg_md_24.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_25",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO25",
+      "comment": "Web Schemas TF: schema.org tests: test 25",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_25.html",
+      "result": "sdo_eg_md_25.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_26",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO26",
+      "comment": "Web Schemas TF: schema.org tests: test 26",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_26.html",
+      "result": "sdo_eg_md_26.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_27",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO27",
+      "comment": "Web Schemas TF: schema.org tests: test 27",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_27.html",
+      "result": "sdo_eg_md_27.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_28",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO28",
+      "comment": "Web Schemas TF: schema.org tests: test 28",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_28.html",
+      "result": "sdo_eg_md_28.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#sdo_eg_md_29",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test SDO29",
+      "comment": "Web Schemas TF: schema.org tests: test 29",
+      "approval": "rdft:Proposed",
+      "action": "sdo_eg_md_29.html",
+      "result": "sdo_eg_md_29.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test016",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0016",
+      "comment": "Use of time with @datetime xsd:time",
+      "approval": "rdft:Proposed",
+      "action": "test016.html",
+      "result": "test016.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test017",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0017",
+      "comment": "Use of time with @datetime xsd:dateTime",
+      "approval": "rdft:Proposed",
+      "action": "test017.html",
+      "result": "test017.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test018",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0018",
+      "comment": "Use of time with @datetime xsd:duration",
+      "approval": "rdft:Proposed",
+      "action": "test018.html",
+      "result": "test018.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test019",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0019",
+      "comment": "Use of time with @datetime invalid",
+      "approval": "rdft:Proposed",
+      "action": "test019.html",
+      "result": "test019.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test020",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0020",
+      "comment": "relative URL as object",
+      "approval": "rdft:Proposed",
+      "action": "test020.html",
+      "result": "test020.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test021",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0021",
+      "comment": "relative URL as itemid",
+      "approval": "rdft:Proposed",
+      "action": "test021.html",
+      "result": "test021.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test022",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0022",
+      "comment": "token property no @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test022.html",
+      "result": "test022.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test023",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0023",
+      "comment": "token property empty @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test023.html",
+      "result": "test023.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test024",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0024",
+      "comment": "token property and relative @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test024.html",
+      "result": "test024.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test025",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0025",
+      "comment": "token property and single @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test025.html",
+      "result": "test025.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test026",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0026",
+      "comment": "token property and multiple @itemtypes from different vocabularies",
+      "approval": "rdft:Proposed",
+      "action": "test026.html",
+      "result": "test026.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test027",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0027",
+      "comment": "URI property no @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test027.html",
+      "result": "test027.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test028",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0028",
+      "comment": "URI property empty @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test028.html",
+      "result": "test028.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test029",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0029",
+      "comment": "URI property relative @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test029.html",
+      "result": "test029.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test030",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0030",
+      "comment": "URI property single @itemtype",
+      "approval": "rdft:Proposed",
+      "action": "test030.html",
+      "result": "test030.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test031",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0031",
+      "comment": "inherited type and token property",
+      "approval": "rdft:Proposed",
+      "action": "test031.html",
+      "result": "test031.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test032",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0032",
+      "comment": "@itemref to single id",
+      "approval": "rdft:Proposed",
+      "action": "test032.html",
+      "result": "test032.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test033",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0033",
+      "comment": "@itemref generates property values",
+      "approval": "rdft:Proposed",
+      "action": "test033.html",
+      "result": "test033.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test034",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0034",
+      "comment": "@itemref to single id with different types",
+      "approval": "rdft:Proposed",
+      "action": "test034.html",
+      "result": "test034.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test035",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0035",
+      "comment": "@itemref to multiple ids",
+      "approval": "rdft:Proposed",
+      "action": "test035.html",
+      "result": "test035.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test036",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0036",
+      "comment": "@itemref with chaining",
+      "approval": "rdft:Proposed",
+      "action": "test036.html",
+      "result": "test036.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test037",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0037",
+      "comment": "Shared @itemref",
+      "approval": "rdft:Proposed",
+      "action": "test037.html",
+      "result": "test037.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test038",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0038",
+      "comment": "Property URI generation 1",
+      "approval": "rdft:Proposed",
+      "action": "test038.html",
+      "result": "test038.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test039",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0039",
+      "comment": "Property URI generation 2",
+      "approval": "rdft:Proposed",
+      "action": "test039.html",
+      "result": "test039.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test040",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0040",
+      "comment": "Property URI generation 3",
+      "approval": "rdft:Proposed",
+      "action": "test040.html",
+      "result": "test040.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test041",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0041",
+      "comment": "Use of data and xsd:float",
+      "approval": "rdft:Proposed",
+      "action": "test041.html",
+      "result": "test041.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test042",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0042",
+      "comment": "Use of data and xsd:integer",
+      "approval": "rdft:Proposed",
+      "action": "test042.html",
+      "result": "test042.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test043",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0043",
+      "comment": "Use of data and string",
+      "approval": "rdft:Proposed",
+      "action": "test043.html",
+      "result": "test043.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test044",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0044",
+      "comment": "Use of meter and xsd:double",
+      "approval": "rdft:Proposed",
+      "action": "test044.html",
+      "result": "test044.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test045",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0045",
+      "comment": "Use of meter and xsd:integer",
+      "approval": "rdft:Proposed",
+      "action": "test045.html",
+      "result": "test045.rdfa"
+    },
+    {
+      "id": "manifest-rdfa#test046",
+      "type": "csvt:ToRdfaTest",
+      "name": "Test 0046",
+      "comment": "Use of meter and xsd:string",
+      "approval": "rdft:Proposed",
+      "action": "test046.html",
+      "result": "test046.rdfa"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang='en' prefix='mdt: https://w3c.github.io/microdata/tests/vocab# mf: http://www.w3.org/2001/sw/DataAccess/tests/test-manifest# rdft: http://www.w3.org/ns/rdftest#'>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet' type='text/css'>
+<style>
+  body: {bacground-image: none;}
+  dt {margin-top: 2em;}
+  dd code {display: inline;}
+  footer {text-align: center;}
+</style>
+<title>
+Microdata Test Vocabulary
+</title>
+</head>
+<body resource='https://w3c.github.io/microdata/tests/vocab#' typeof='owl:Ontology'>
+<meta property='dc:creator' value='Gregg Kellogg'>
+<link href='https://w3c.github.io/microdata/tests/vocab#' property='dc:identifier'>
+<p>
+<a href='http://www.w3.org/'>
+<img alt='W3C' height='48' src='http://www.w3.org/Icons/w3c_home' width='72'>
+</a>
+</p>
+<h1 property='dc:title rdfs:label'>Microdata Test Vocabulary</h1>
+<span property='dc:description rdfs:comment'>
+<p>This is a vocabulary document used to define classes and properties used in
+<a href="https://w3c.github.io/microdata/tests/">Microdata Test Cases</a> and associated test manifests.</p>
+
+<p>This vocabulary extends the <a href="http://www.w3.org/ns/rdftest#">RDF Test Vocabulary</a>
+and <a href="http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#">Test Manifest Vocabulary</a> with Microdata-specific tests.
+The URI of the vocabulary is <code>https://w3c.github.io/microdata/tests/vocab#</code>
+(abbreviated by <code>mdt</code> in this document).
+<a href="vocab.ttl">Turtle</a> and <a href="vocab.jsonld">JSON-LD</a> versions of the vocabular are also available.
+The vocabulary is published by the <a href="https://www.w3.org/WebPlatform/WG/">W3C Web Platform Working Group</a>.</p>
+
+</span>
+<section>
+<h2>Vocabulary Terms</h2>
+<p>The vocabulary terms below constitute the complete Microdata Test vocabulary</p>
+<section>
+<h3 id='classes'>Classes</h3>
+<dl>
+<dt about='mdt:NegativeEvaluationTest' property='rdfs:label' typeof='rdfs:Class'>mdt:NegativeEvaluationTest</dt>
+<dd about='mdt:NegativeEvaluationTest'>
+<em property='rdfs:label'>Negative Evaluation Test</em>
+<span property='rdfs:comment'><p>A Negative Evaluation test is successful when the result of processing the input file specified as <code>mf:action</code> results in an error or exception. The specifics of invoking test, including the interpretation of options (and other input files are specified through sub-class.</p>
+</span>
+<div>
+<strong>
+subClassOf:
+</strong>
+<code property='rdfs:subClassOf' resource='mdt:Test'>mdt:Test</code>
+</div>
+</dd>
+<dt about='mdt:NegativeJsonTest' property='rdfs:label' typeof='rdfs:Class'>mdt:NegativeJsonTest</dt>
+<dd about='mdt:NegativeJsonTest'>
+<em property='rdfs:label'>Negative JSON Test</em>
+<span property='rdfs:comment'><p>An error or exception should be generated when trying to generate JSON.</p>
+</span>
+<div>
+<strong>
+subClassOf:
+</strong>
+<ul>
+<li>
+<code property='rdfs:subClassOf' resource='rdft:TestEval'>rdft:TestEval</code>
+</li>
+<li>
+<code property='rdfs:subClassOf' resource='mdt:NegativeEvaluationTest'>mdt:NegativeEvaluationTest</code>
+</li>
+</ul>
+</div>
+</dd>
+<dt about='mdt:NegativeRdfaTest' property='rdfs:label' typeof='rdfs:Class'>mdt:NegativeRdfaTest</dt>
+<dd about='mdt:NegativeRdfaTest'>
+<em property='rdfs:label'>Negative RDFa Test</em>
+<span property='rdfs:comment'><p>An error or exception should be generated when trying to generate RDFa.</p>
+</span>
+<div>
+<strong>
+subClassOf:
+</strong>
+<ul>
+<li>
+<code property='rdfs:subClassOf' resource='rdft:TestEval'>rdft:TestEval</code>
+</li>
+<li>
+<code property='rdfs:subClassOf' resource='mdt:NegativeEvaluationTest'>mdt:NegativeEvaluationTest</code>
+</li>
+</ul>
+</div>
+</dd>
+<dt about='mdt:PositiveEvaluationTest' property='rdfs:label' typeof='rdfs:Class'>mdt:PositiveEvaluationTest</dt>
+<dd about='mdt:PositiveEvaluationTest'>
+<em property='rdfs:label'>Positive Evaluation Test</em>
+<span property='rdfs:comment'><p>A Positive Evaluation test is successful when the result of processing the input file specified as <code>mf:action</code> exactly matches the output file specified as <code>mf:result</code> using the comparison defined in another class. The specifics of invoking test, including the interpretation of options and other input files are specified through a sub-class.</p>
+</span>
+<div>
+<strong>
+subClassOf:
+</strong>
+<code property='rdfs:subClassOf' resource='mdt:Test'>mdt:Test</code>
+</div>
+</dd>
+<dt about='mdt:Test' property='rdfs:label' typeof='rdfs:Class'>mdt:Test</dt>
+<dd about='mdt:Test'>
+<em property='rdfs:label'>Superclass of all Microdata tests</em>
+<span property='rdfs:comment'><p>All Microdata tests have an input file referenced using <code>mf:action</code>. Positive and Negative Evaluation Tests also have a result file referenced using <code>mf:result</code> . Other tests may take different inputs and options as defined for each test class.</p>
+</span>
+<div>
+<strong>
+subClassOf:
+</strong>
+<ul>
+<li>
+<code property='rdfs:subClassOf' resource='rdft:Test'>rdft:Test</code>
+</li>
+<li>
+<code property='rdfs:subClassOf' resource='mf:ManifestEntry'>mf:ManifestEntry</code>
+</li>
+</ul>
+</div>
+</dd>
+<dt about='mdt:ToJsonTest' property='rdfs:label' typeof='rdfs:Class'>mdt:ToJsonTest</dt>
+<dd about='mdt:ToJsonTest'>
+<em property='rdfs:label'>To JSON Test</em>
+<span property='rdfs:comment'><p>A <code>ToJsonTest</code> takes an input file (<code>mf:accept</code>) in text/html format to produce a an JSON file. The expected results are compared using JSON object comparison with the processor output.</p>
+</span>
+<div>
+<strong>
+subClassOf:
+</strong>
+<code property='rdfs:subClassOf' resource='mdt:PositiveEvaluationTest'>mdt:PositiveEvaluationTest</code>
+</div>
+</dd>
+<dt about='mdt:ToRdfaTest' property='rdfs:label' typeof='rdfs:Class'>mdt:ToRdfaTest</dt>
+<dd about='mdt:ToRdfaTest'>
+<em property='rdfs:label'>To RDFa Test</em>
+<span property='rdfs:comment'><p>A <code>ToRdfaTest</code> takes an input file (<code>mf:accept</code>) in text/html format to produce a an HTML+RDFa file. The expected results are compared using DOM comparison with the processor output.</p>
+</span>
+<div>
+<strong>
+subClassOf:
+</strong>
+<ul>
+<li>
+<code property='rdfs:subClassOf' resource='rdft:TestEval'>rdft:TestEval</code>
+</li>
+<li>
+<code property='rdfs:subClassOf' resource='mdt:PositiveEvaluationTest'>mdt:PositiveEvaluationTest</code>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</section>
+<section>
+<h3 id='properties'>Properties</h3>
+<dl>
+<dt about='mdt:base' property='rdfs:label' typeof='rdf:Property'>mdt:base</dt>
+<dd about='mdt:base'>
+<em property='rdfs:label'>base</em>
+<span property='rdfs:comment'><p>The base IRI to use when expanding or compacting the document. If set, this overrides the input document&#39;s IRI.</p>
+</span>
+<div>
+<strong>
+domain:
+</strong>
+<code property='rdfs:domain' resource='mdt:Test'>mdt:Test</code>
+</div>
+<div>
+<strong>
+range:
+</strong>
+<code property='rdfs:range' resource='rdfs:Resource'>rdfs:Resource</code>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+<footer>
+<span property='dc:publisher'>W3C Web Platform Working Group</span>
+</footer>
+</body>
+</html>

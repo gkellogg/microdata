@@ -1,0 +1,104 @@
+{
+  "@context": {
+    "mdt": "https://w3c.github.io/microdata/tests/vocab#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdft": "http://www.w3.org/ns/rdftest#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dc:identifier": {
+      "@type": "@id"
+    },
+    "rdfs:subClassOf": {
+      "@type": "@id"
+    },
+    "rdfs:domain": {
+      "@type": "@id"
+    },
+    "rdfs:range": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "https://w3c.github.io/microdata/tests/vocab#",
+      "dc:creator": "Gregg Kellogg",
+      "dc:date": "2018-04-11",
+      "dc:description": "\n    This is a vocabulary document used to define classes and properties used in\n    [Microdata Test Cases](https://w3c.github.io/microdata/tests/) and associated test manifests.\n  ",
+      "dc:identifier": "https://w3c.github.io/microdata/tests/vocab#",
+      "dc:publisher": "W3C Web Platform Working Group",
+      "dc:title": "Microdata Test Vocabulary",
+      "rdfs:comment": "This is a vocabulary document used to define classes and properties used in [Microdata Test Cases](https://w3c.github.io/microdata/tests/) and associated test manifests."
+    },
+    {
+      "@id": "mdt:NegativeEvaluationTest",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A Negative Evaluation test is successful when the result of processing the input file specified as `mf:action` results in an error or exception. The specifics of invoking test, including the interpretation of options (and other input files are specified through sub-class.",
+      "rdfs:label": "Negative Evaluation Test",
+      "rdfs:subClassOf": "mdt:Test"
+    },
+    {
+      "@id": "mdt:NegativeJsonTest",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An error or exception should be generated when trying to generate JSON.",
+      "rdfs:label": "Negative JSON Test",
+      "rdfs:subClassOf": [
+        "rdft:TestEval",
+        "mdt:NegativeEvaluationTest"
+      ]
+    },
+    {
+      "@id": "mdt:NegativeRdfaTest",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An error or exception should be generated when trying to generate RDFa.",
+      "rdfs:label": "Negative RDFa Test",
+      "rdfs:subClassOf": [
+        "rdft:TestEval",
+        "mdt:NegativeEvaluationTest"
+      ]
+    },
+    {
+      "@id": "mdt:PositiveEvaluationTest",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A Positive Evaluation test is successful when the result of processing the input file specified as `mf:action` exactly matches the output file specified as `mf:result` using the comparison defined in another class. The specifics of invoking test, including the interpretation of options and other input files are specified through a sub-class.",
+      "rdfs:label": "Positive Evaluation Test",
+      "rdfs:subClassOf": "mdt:Test"
+    },
+    {
+      "@id": "mdt:Test",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "All Microdata tests have an input file referenced using `mf:action`. Positive and Negative Evaluation Tests also have a result file referenced using `mf:result` . Other tests may take different inputs and options as defined for each test class.",
+      "rdfs:label": "Superclass of all Microdata tests",
+      "rdfs:subClassOf": [
+        "rdft:Test",
+        "mf:ManifestEntry"
+      ]
+    },
+    {
+      "@id": "mdt:ToJsonTest",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A `ToJsonTest` takes an input file (`mf:accept`) in text/html format to produce a an JSON file. The expected results are compared using JSON object comparison with the processor output.",
+      "rdfs:label": "To JSON Test",
+      "rdfs:subClassOf": "mdt:PositiveEvaluationTest"
+    },
+    {
+      "@id": "mdt:ToRdfaTest",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A `ToRdfaTest` takes an input file (`mf:accept`) in text/html format to produce a an HTML+RDFa file. The expected results are compared using DOM comparison with the processor output.",
+      "rdfs:label": "To RDFa Test",
+      "rdfs:subClassOf": [
+        "rdft:TestEval",
+        "mdt:PositiveEvaluationTest"
+      ]
+    },
+    {
+      "@id": "mdt:base",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The base IRI to use when expanding or compacting the document. If set, this overrides the input document's IRI.",
+      "rdfs:domain": "mdt:Test",
+      "rdfs:label": "base",
+      "rdfs:range": "rdfs:Resource"
+    }
+  ]
+}
